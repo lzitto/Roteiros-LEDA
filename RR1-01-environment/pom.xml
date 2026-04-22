@@ -86,9 +86,9 @@
 						</goals>
 						<configuration>
 							<!-- insira sua matricula -->
-							<matricula>INSIRA SEU NUMERO DE MATRICULA</matricula>
+							<matricula>121110520</matricula>
 							<!-- insira o ID correto da atividade e a turma -->
-							<roteiro>R0X-0X</roteiro>
+							<roteiro>RR1-01</roteiro>
 							<!-- NÃO MODIFIQUE AS TAGS ABAIXO -->
 							<urlCurrentSemester>http://150.165.85.97:81/api/geral/getCurrentSemester</urlCurrentSemester>
 							<urlSubmit>http://150.165.85.97:81/api/submissoes/saveSubmission</urlSubmit>
