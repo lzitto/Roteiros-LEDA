@@ -7,8 +7,10 @@ import java.util.Arrays;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import sorting.AbstractSorting;
+import sorting.simpleSorting.BubbleSort;
 import sorting.simpleSorting.InsertionSort;
-
+import sorting.simpleSorting.SelectionSort;
+import sorting.variationsOfBubblesort.RecursiveBubbleSort;
 
 
 public class StudentTestSorting {
@@ -41,7 +43,11 @@ public class StudentTestSorting {
 	 */
 	private void getImplementation() {
 		//this.implementation = new BubbleSort<>();	
-		this.implementation = new InsertionSort<>();
+		
+		//this.implementation = new InsertionSort<>();
+		//this.implementation = new SelectionSort<>();
+		this.implementation = new RecursiveBubbleSort<>();
+	
 	}
 
 	public void populaVetorTamanhoPar(Integer[] arrayPadrao) {
