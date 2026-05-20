@@ -15,41 +15,42 @@ public class BidirectionalBubbleSort<T extends Comparable<T>> extends
 
 	@Override
 	public void sort(T[] array, int leftIndex, int rightIndex) {
-		if (array == null || leftIndex >= rightIndex ||
-            leftIndex < 0 || rightIndex >= array.length) {
-            return;
-        }
+		if (array == null || array.length == 0
+				|| leftIndex < 0
+				|| rightIndex >= array.length
+				|| leftIndex >= rightIndex) {
+			return;
+		}
 
-        boolean swapped = true;
+		boolean swapped = true;
 
-        while (swapped) {
-            swapped = false;
+		while (swapped) {
 
-            // Pass left -> right (empurrando maiores para o fim)
-            for (int i = leftIndex; i < rightIndex; i++) {
-                if (array[i].compareTo(array[i + 1]) > 0) {
-                    Util.swap(array, i, i + 1);
-                    swapped = true;
-                }
-            }
+			swapped = false;
 
-            // Se não houve swap, já está ordenado
-            if (!swapped) break;
+			// esquerda -> direita
+			for (int i = leftIndex; i < rightIndex; i++) {
 
-            // zona ordenada no final, reduz a janela
-            rightIndex--;
-            swapped = false;
+				if (array[i].compareTo(array[i + 1]) > 0) {
+					Util.swap(array, i, i + 1);
+					swapped = true;
+				}
+			}
 
-            // Pass right -> left (empurrando menores para o começo)
-            for (int i = rightIndex; i > leftIndex; i--) {
-                if (array[i].compareTo(array[i - 1]) < 0) {
-                    Util.swap(array, i, i - 1);
-                    swapped = true;
-                }
-            }
+			// maior já foi pro final
+			rightIndex--;
 
-            // zona ordenada no início
-            leftIndex++;
-        }
+			// direita -> esquerda
+			for (int i = rightIndex; i > leftIndex; i--) {
+
+				if (array[i].compareTo(array[i - 1]) < 0) {
+					Util.swap(array, i, i - 1);
+					swapped = true;
+				}
+			}
+
+			// menor já foi pro começo
+			leftIndex++;
+		}
 	}
 }

@@ -22,5 +22,5 @@ public abstract class AbstractSorting<T extends Comparable<T>> implements
 	 *            where the sorting should end
 	 */
 	public abstract void sort(T[] array, int leftIndex, int rightIndex);
-	
+
 }

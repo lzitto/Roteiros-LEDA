@@ -16,23 +16,22 @@ public class RecursiveBubbleSort<T extends Comparable<T>> extends
 	 */
 	@Override
 	public void sort(T[] array, int leftIndex, int rightIndex) {
-		if (array == null || leftIndex < 0 || rightIndex >= array.length || leftIndex >= rightIndex) {
-            return;
-        }
+		if (array == null || array.length == 0
+				|| leftIndex < 0
+				|| rightIndex >= array.length
+				|| leftIndex >= rightIndex) {
+			return;
+		}
+		
+		for (int i = leftIndex; i < rightIndex; i++) {
 
-        bubblePass(array, leftIndex, rightIndex);
-        sort(array, leftIndex, rightIndex - 1);
-    }
+			if (array[i].compareTo(array[i + 1]) > 0) {
+				Util.swap(array, i, i + 1);
+			}
+		}
 
-    private void bubblePass(T[] array, int leftIndex, int rightIndex) {
-        if (leftIndex >= rightIndex) {
-            return;
-        }
+		// reduz o problema
+		sort(array, leftIndex, rightIndex - 1);
+	}
 
-        if (array[leftIndex].compareTo(array[leftIndex + 1]) > 0) {
-            Util.swap(array, leftIndex, leftIndex + 1);
-        }
-
-        bubblePass(array, leftIndex + 1, rightIndex);
-    }
 }
