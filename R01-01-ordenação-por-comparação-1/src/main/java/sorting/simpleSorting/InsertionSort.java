@@ -27,7 +27,7 @@ public class InsertionSort<T extends Comparable<T>> extends AbstractSorting<T> {
 				array[j] = array[j - 1];
 				j--;
 			}
-
+			
 			array[j] = temp;
 		}
 	}
