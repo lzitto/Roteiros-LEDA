@@ -9,6 +9,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import sorting.AbstractSorting;
+import sorting.divideAndConquer.MergeSort;
 
 public class StudentTestSorting {
 
@@ -38,10 +39,7 @@ public class StudentTestSorting {
 	 * do aluno
 	 */
 	private void getImplementation() {
-		// TODO O aluno deve instanciar sua implementação abaixo ao invés de
-		// null
-		this.implementation = null;
-		fail("Implementation not provided");
+		this.implementation = new MergeSort<>();
 	}
 
 	public void populaVetorTamanhoPar(Integer[] arrayPadrao) {
