@@ -1,6 +1,7 @@
 package sorting.divideAndConquer.quicksort3;
 
 import sorting.AbstractSorting;
+import util.Util;
 
 /**
  * A classe QuickSortMedianOfThree representa uma variação do QuickSort que
@@ -20,7 +21,80 @@ public class QuickSortMedianOfThree<T extends Comparable<T>> extends
 		AbstractSorting<T> {
 
 	public void sort(T[] array, int leftIndex, int rightIndex) {
-		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("Not implemented yet!");
+		if (array == null
+				|| array.length == 0
+				|| leftIndex < 0
+				|| rightIndex >= array.length
+				|| leftIndex >= rightIndex) {
+
+			return;
+		}
+
+		/*
+		 * Caso base para arrays de tamanho 2.
+		 */
+		if (rightIndex - leftIndex == 1) {
+
+			if (array[leftIndex].compareTo(array[rightIndex]) > 0) {
+				Util.swap(array, leftIndex, rightIndex);
+			}
+
+			return;
+		}
+
+		medianOfThree(array, leftIndex, rightIndex);
+
+		int pivotFinalPosition = partition(array, leftIndex, rightIndex);
+
+		sort(array, leftIndex, pivotFinalPosition - 1);
+
+		sort(array, pivotFinalPosition + 1, rightIndex);
+	}
+
+	private void medianOfThree(T[] array, int left, int right) {
+
+		int center = (left + right) / 2;
+
+		if (array[left].compareTo(array[center]) > 0) {
+			Util.swap(array, left, center);
+		}
+
+		if (array[left].compareTo(array[right]) > 0) {
+			Util.swap(array, left, right);
+		}
+
+		if (array[center].compareTo(array[right]) > 0) {
+			Util.swap(array, center, right);
+		}
+
+		/*
+		 * Coloca o pivô na penúltima posição.
+		 */
+		Util.swap(array, center, right - 1);
+	}
+
+	private int partition(T[] array, int leftIndex, int rightIndex) {
+
+		T pivot = array[rightIndex - 1];
+
+		int i = leftIndex;
+
+		for (int j = leftIndex; j < rightIndex - 1; j++) {
+
+			if (array[j].compareTo(pivot) < 0) {
+
+				Util.swap(array, i, j);
+
+				i++;
+			}
+		}
+
+		/*
+		 * Coloca o pivô em sua posição final.
+		 */
+		Util.swap(array, i, rightIndex - 1);
+
+		return i;
+	
 	}
 }
