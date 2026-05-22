@@ -41,7 +41,8 @@ public class StudentTestSorting {
 	 * do aluno
 	 */
 	private void getImplementation() {
-		this.implementation = new QuickSortMedianOfThree<>();
+		//this.implementation = new QuickSortMedianOfThree<>();
+		this.implementation = new MergeSort<>();
 	}
 
 	public void populaVetorTamanhoPar(Integer[] arrayPadrao) {
