@@ -27,15 +27,13 @@ public class StudentTestStack {
 		stack2.push(1);
 		stack2.push(2);
 
-		// pilha com tamaho 5 e 5 elementos
-
 	}
 
 	private void getImplementations() {
 		// TODO O aluno deve ajustar aqui para instanciar sua implementação
-		stack1 = new StackImpl<>(4); // tamanho 4: 3 elementos, não cheia
-		stack2 = new StackImpl<>(2); // tamanho 2: ficará cheia após setUp
-		stack3 = new StackImpl<>(3); // vazia
+		stack1 = null;
+		stack2 = null;
+		stack3 = null;
 	}
 
 	// MÉTODOS DE TESTE
@@ -68,7 +66,7 @@ public class StudentTestStack {
 	@Test
 	public void testPushComErro() throws StackOverflowException {
 		assertThrows(StackOverflowException.class, () -> {
-			stack2.push(Integer.valueOf(5));
+			stack1.push(Integer.valueOf(5));
 		});
 		// levanta excecao apenas se o tamanho nao permitir outra insercao
 	}
@@ -86,7 +84,7 @@ public class StudentTestStack {
 	@Test
 	public void testPopComErro() throws StackUnderflowException {
 		assertThrows(StackUnderflowException.class, () -> {
-			assertEquals(Integer.valueOf(3), stack3.pop()); 
+			assertEquals(Integer.valueOf(3), stack1.pop()); 
 		});
 		// levanta excecao apenas se stack1 for vazia
 	}
