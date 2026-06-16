@@ -4,6 +4,8 @@ public class QueueImpl<T> implements Queue<T> {
 
 	protected T[] array;
 	protected int tail;
+	protected int maxSize;
+	protected int elements;
 
 	@SuppressWarnings("unchecked")
 	public QueueImpl(int size) {
@@ -13,14 +15,12 @@ public class QueueImpl<T> implements Queue<T> {
 
 	@Override
 	public T head() {
-		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("Not implemented yet!");
+		return array;
 	}
 
 	@Override
 	public boolean isEmpty() {
-		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("Not implemented yet!");
+		return tail == -1;
 	}
 
 	@Override

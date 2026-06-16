@@ -23,6 +23,7 @@ public class StudentTestQueue {
 		queue1.enqueue(1);
 		queue1.enqueue(2);
 		queue1.enqueue(3);
+		queue1.head();
 
 		// Fila com 2 elementos de tamanho 2. Fila cheia.
 		queue2.enqueue(1);
@@ -32,9 +33,14 @@ public class StudentTestQueue {
 
 	private void getImplementations() {
 		// TODO O aluno deve ajustar aqui para instanciar sua implementação
-		queue1 = null;
-		queue2 = null;
-		queue3 = null;
+		/*Comentario feito por dlzitto do presente
+		no passado fiz isso e vou usar isso pra aprender. sobre testes!
+		1ª vou isntanciar minha implementação
+		*/
+
+		queue1 = new QueueImpl<>(4);
+		queue2 = new QueueImpl<>(2);
+		queue3 = new QueueImpl<>(1);
 	}
 
 	// MÉTODOS DE TESTE
