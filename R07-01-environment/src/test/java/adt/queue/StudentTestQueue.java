@@ -33,7 +33,6 @@ public class StudentTestQueue {
 
 	private void getImplementations() {
 		// TODO O aluno deve ajustar aqui para instanciar sua implementação
-<<<<<<< HEAD
 		/*Comentario feito por dlzitto do presente
 		no passado fiz isso e vou usar isso pra aprender. sobre testes!
 		1ª vou isntanciar minha implementação
@@ -42,11 +41,9 @@ public class StudentTestQueue {
 		queue1 = new QueueImpl<>(4);
 		queue2 = new QueueImpl<>(2);
 		queue3 = new QueueImpl<>(1);
-=======
 		queue1 = new CircularQueueImpl<>(4);
 		queue2 = new CircularQueueImpl<>(2);
 		queue3 = new CircularQueueImpl<>(4);
->>>>>>> 48d402b83881acdf5cc6e60d5028a5024971bb9b
 	}
 
 	// MÉTODOS DE TESTE
