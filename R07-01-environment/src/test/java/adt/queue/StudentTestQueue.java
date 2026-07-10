@@ -33,6 +33,7 @@ public class StudentTestQueue {
 
 	private void getImplementations() {
 		// TODO O aluno deve ajustar aqui para instanciar sua implementação
+<<<<<<< HEAD
 		/*Comentario feito por dlzitto do presente
 		no passado fiz isso e vou usar isso pra aprender. sobre testes!
 		1ª vou isntanciar minha implementação
@@ -44,6 +45,11 @@ public class StudentTestQueue {
 		queue1 = new CircularQueueImpl<>(4);
 		queue2 = new CircularQueueImpl<>(2);
 		queue3 = new CircularQueueImpl<>(4);
+=======
+		queue1 = new QueueImpl<>(4);
+		queue2 = new QueueImpl<>(2);
+		queue3 = new QueueImpl<>(4);
+>>>>>>> c0fb543 (RoTBST - 11)
 	}
 
 	// MÉTODOS DE TESTE
@@ -77,7 +83,11 @@ public class StudentTestQueue {
 	@Test
 	public void testEnqueueComErro() throws QueueOverflowException {
 		assertThrows(QueueOverflowException.class, () -> {
+<<<<<<< HEAD
 			queue2.enqueue(Integer.valueOf(5));
+=======
+			queue2.enqueue(Integer.valueOf(3));
+>>>>>>> c0fb543 (RoTBST - 11)
 		});
 	}
 
