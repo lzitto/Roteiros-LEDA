@@ -18,13 +18,15 @@ public class StudentLinkedListTest {
 		lista1.insert(3);
 		lista1.insert(2);
 		lista1.insert(1);
+		lista2.insert(7);
+		lista1.remove(2);
+
 
 	}
 
 	private void getImplementations() {
-		// TODO O aluno deve ajustar aqui para instanciar sua implementação
-		lista1 = null;
-		lista2 = null;
+		lista1 = new SingleLinkedListImpl<>();
+    	lista2 = new SingleLinkedListImpl<>();
 	}
 
 	@Test
