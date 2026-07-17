@@ -3,13 +3,13 @@ package adt.bst;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import adt.bt.BTNode;
 import java.util.Arrays;
 import java.util.List;
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import adt.bt.BTNode;
+
 
 public class StudentTestBST {
 
@@ -119,11 +119,17 @@ public class StudentTestBST {
 		assertTrue(preOrder.equals(tree.preOrder()));
 		assertEquals(4, tree.height());
 
+		//mano????
+		List<Integer> seuPreOrder = tree.preOrder();
+		System.out.println("PreOrder (Raiz -> Esq -> Dir):  " + seuPreOrder);
+
 		tree.remove(0);
 		assertEquals(3, tree.height());
 
 		tree.remove(2);
 		assertEquals(3, tree.height());
+	
+		
 	}
 
 	@Test

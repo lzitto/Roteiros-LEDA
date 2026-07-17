@@ -109,22 +109,54 @@ public class BSTImpl<T extends Comparable<T>> implements BST<T> {
 		throw new UnsupportedOperationException("Not implemented yet!");
 	}
 
+
+	// um metodo pequeno pra visualização do visit node
+	private void visit(BSTNode<T> node, List<T> array) {
+		System.out.println("-> visit(node) executado para o valor: " + node.getData());
+		array.add(node.getData());
+	}
 	@Override
 	public List<T> preOrder() {
-		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("Not implemented yet!");
+		List<T> array = new java.util.ArrayList<>();
+		preOrder(this.root, array);
+		return array;
+	}
+
+	private void preOrder(BSTNode<T> node, List<T> array) {
+		
+		if(!node.isEmpty()){
+			visit(node, array);
+			preOrder((BSTNode<T>) node.getLeft(), array);
+			preOrder((BSTNode<T>) node.getRight(), array);
+		}
 	}
 
 	@Override
 	public List<T> order() {
-		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("Not implemented yet!");
+		List<T> array = new java.util.ArrayList<>();
+		order(this.root, array);
+		return array;
+	}
+
+	private void order(BSTNode<T> node, List<T> array) {
+		if(!node.isEmpty()) {
+			order((BSTNode<T>) node.getLeft(), array);
+			visit(node, array);
+			order((BSTNode<T>) node.getRight(), array);
+		}
 	}
 
 	@Override
 	public List<T> postOrder() {
-		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("Not implemented yet!");
+		List<T> array = new java.util.ArrayList<>();
+		preOrder(this.root, array);
+		return array;
+	}
+
+	private void postOrder(BSTNode<T> node, List<T> array) {
+		postOrder((BSTNode<T>) node.getRight(), array);
+		postOrder((BSTNode<T>) node.getLeft(), array);
+		visit(node, array);
 	}
 
 	/**
