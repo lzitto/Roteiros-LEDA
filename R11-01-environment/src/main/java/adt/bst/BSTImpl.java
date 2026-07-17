@@ -21,8 +21,18 @@ public class BSTImpl<T extends Comparable<T>> implements BST<T> {
 
 	@Override
 	public int height() {
-		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("Not implemented yet!");
+		return height(root);
+	}
+
+	public int height(BSTNode<T> node){
+		int ans;
+		if(node.isEmpty()) {
+			ans = -1;
+		}
+		else {
+			ans = 1 + Math.max(height((BSTNode<T>) node.getLeft()), height((BSTNode<T>) node.getRight()));
+		}
+		return ans;
 	}
 
 	@Override
@@ -99,7 +109,7 @@ public class BSTImpl<T extends Comparable<T>> implements BST<T> {
 		// caso base significa fazer nada (return 0)
 		if (!node.isEmpty()) { // caso indutivo
 			result = 1 + size((BSTNode<T>) node.getLeft())
-					+ size((BSTNode<T>) node.getRight());
+					+ size((BSTNode<T>) node.getRight()); // forma como pegamos os dados
 		}
 		return result;
 	}
