@@ -81,16 +81,45 @@ public class BSTImpl<T extends Comparable<T>> implements BST<T> {
 
 	@Override
 	public BSTNode<T> maximum() {
-		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("Not implemented yet!");
+		if(isEmpty()) {
+			return null;
+		} 
+		return maximum(root);
+	}
+
+	private BSTNode<T> maximum(BSTNode<T> node) {
+		System.out.println("-> maximum(node) analisando: " + node.getData());
+		BSTNode<T> ansNode = null;
+		if(node.getRight().isEmpty()) {
+			System.out.println("   [MÁXIMO ENCONTRADO!] Direita de " + node.getData() + " é NIL. Retornando " + node.getData());
+			ansNode = node;
+		}
+		else {
+			System.out.println("   Direita de " + node.getData() + " possui valor: " + node.getRight().getData() + ". Descendo...");
+			ansNode = maximum((BSTNode<T>) node.getRight());
+		}
+		return ansNode;
 	}
 
 	@Override
 	public BSTNode<T> minimum() {
-		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("Not implemented yet!");
+		if(isEmpty()) {
+			return null;
+		} 
+
+		return minimum(root);
 	}
 
+	private BSTNode<T> minimum(BSTNode<T> node){
+		BSTNode<T> ansNode = null;
+		if(node.getLeft().isEmpty()) {
+			ansNode = node;
+		}
+		else{
+			ansNode = minimum((BSTNode<T>) node.getLeft());
+		}
+		return ansNode;
+	}
 	@Override
 	public BSTNode<T> sucessor(T element) {
 		// TODO Auto-generated method stub
