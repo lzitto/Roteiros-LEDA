@@ -121,7 +121,6 @@ public class StudentTestBST {
 
 		//mano????
 		List<Integer> seuPreOrder = tree.preOrder();
-		System.out.println("PreOrder (Raiz -> Esq -> Dir):  " + seuPreOrder);
 
 		tree.remove(0);
 		assertEquals(3, tree.height());

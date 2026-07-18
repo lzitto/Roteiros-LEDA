@@ -88,14 +88,11 @@ public class BSTImpl<T extends Comparable<T>> implements BST<T> {
 	}
 
 	private BSTNode<T> maximum(BSTNode<T> node) {
-		System.out.println("-> maximum(node) analisando: " + node.getData());
 		BSTNode<T> ansNode = null;
 		if(node.getRight().isEmpty()) {
-			System.out.println("   [MÁXIMO ENCONTRADO!] Direita de " + node.getData() + " é NIL. Retornando " + node.getData());
 			ansNode = node;
 		}
 		else {
-			System.out.println("   Direita de " + node.getData() + " possui valor: " + node.getRight().getData() + ". Descendo...");
 			ansNode = maximum((BSTNode<T>) node.getRight());
 		}
 		return ansNode;
@@ -121,22 +118,93 @@ public class BSTImpl<T extends Comparable<T>> implements BST<T> {
 		return ansNode;
 	}
 	@Override
-	public BSTNode<T> sucessor(T element) {
-		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("Not implemented yet!");
-	}
+    public BSTNode<T> sucessor(T element) {
+        BSTNode<T> ansNode = search(element);
+        if (ansNode.isEmpty()) {
+            return null;
+        }
+        else if (!ansNode.getRight().isEmpty()) {
+            ansNode = minimum((BSTNode<T>) ansNode.getRight());
+        } else {
+            ansNode = sucessorAncestral(ansNode, (BSTNode<T>) ansNode.getParent());
+        }
+        return ansNode;
+    }
+
+    private BSTNode<T> sucessorAncestral(BSTNode<T> node, BSTNode<T> parent) {
+        BSTNode<T> ansNode = null;
+        if (parent == null || parent.isEmpty() || node.equals(parent.getLeft())) {
+            ansNode = parent;
+        } else {
+            ansNode = sucessorAncestral(parent, (BSTNode<T>) parent.getParent());
+        }
+        return ansNode;
+    }
 
 	@Override
-	public BSTNode<T> predecessor(T element) {
-		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("Not implemented yet!");
-	}
+    public BSTNode<T> predecessor(T element) {
+        BSTNode<T> ansNode = search(element);
+        if (ansNode.isEmpty()) {
+            return null;
+        }
+        else if (!ansNode.getLeft().isEmpty()) {
+            ansNode = maximum((BSTNode<T>) ansNode.getLeft());
+        } else {
+            ansNode = predecessorAncestral(ansNode, (BSTNode<T>) ansNode.getParent());
+        }
+        return ansNode;
+    }
+
+    private BSTNode<T> predecessorAncestral(BSTNode<T> node, BSTNode<T> parent) {
+        BSTNode<T> ansNode = null;
+        if (parent == null || parent.isEmpty() || node.equals(parent.getRight())) {
+            ansNode = parent;
+        } else {
+            ansNode = predecessorAncestral(parent, (BSTNode<T>) parent.getParent());
+        }
+        return ansNode;
+    }
 
 	@Override
-	public void remove(T element) {
-		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("Not implemented yet!");
-	}
+    public void remove(T element) {
+        if (element != null) {
+            BSTNode<T> node = search(element);
+            if (!node.isEmpty()) {
+                remove(node);
+            }
+        }
+    }
+
+    private void remove(BSTNode<T> node) {
+        if (node.getLeft().isEmpty() && node.getRight().isEmpty()) {
+            node.setData(null);
+        } else if (!node.getLeft().isEmpty() && !node.getRight().isEmpty()) {
+            BSTNode<T> sucessorNode = sucessor(node.getData());
+            node.setData(sucessorNode.getData());
+            remove(sucessorNode);
+        } else {
+            BSTNode<T> childNode;
+            if (!node.getLeft().isEmpty()) {
+                childNode = (BSTNode<T>) node.getLeft();
+            } else {
+                childNode = (BSTNode<T>) node.getRight();
+            }
+
+            if (node != root) {
+                BSTNode<T> parentNode = (BSTNode<T>) node.getParent();
+                childNode.setParent(parentNode);
+                
+                if (node == parentNode.getLeft()) {
+                    parentNode.setLeft(childNode);
+                } else {
+                    parentNode.setRight(childNode);
+                }
+            } else {
+                root = childNode;
+                root.setParent(null);
+            }
+        }
+    }
 
 
 	// um metodo pequeno pra visualização do visit node
@@ -178,14 +246,16 @@ public class BSTImpl<T extends Comparable<T>> implements BST<T> {
 	@Override
 	public List<T> postOrder() {
 		List<T> array = new java.util.ArrayList<>();
-		preOrder(this.root, array);
+		postOrder(this.root, array);
 		return array;
 	}
 
 	private void postOrder(BSTNode<T> node, List<T> array) {
-		postOrder((BSTNode<T>) node.getRight(), array);
-		postOrder((BSTNode<T>) node.getLeft(), array);
-		visit(node, array);
+		if(!node.isEmpty()) {
+			postOrder((BSTNode<T>) node.getLeft(), array);
+			postOrder((BSTNode<T>) node.getRight(), array);
+			visit(node, array);
+		}
 	}
 
 	/**

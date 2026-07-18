@@ -1,6 +1,7 @@
 package problems;
 
 import adt.bst.BSTImpl;
+import adt.bst.BSTNode;
 
 /**
  * Note que esta classe estende sua implementacao de BST (BSTImpl).
@@ -22,10 +23,32 @@ public class FloorCeilBSTImpl extends BSTImpl<Integer> implements FloorCeil {
 	 */
 	@Override
 	public Integer floor(Integer[] array, Integer numero) {
-		//TODO Implemente seu codigo aqui
-		throw new UnsupportedOperationException("Not implemented yet!");
+		Integer ans = null;
+        if (array != null && numero != null && array.length > 0) {
+            this.root = new BSTNode<>();
+            for (Integer elem : array) {
+                if (elem != null) {
+                    this.insert(elem);
+                }
+            }
+            ans = findFloor(this.root, numero, null);
+        }
+        return ans;
 	}
 
+	private Integer findFloor(BSTNode<Integer> node, Integer x, Integer currentFloor) {
+       Integer ans = currentFloor;
+        if (node != null && !node.isEmpty()) {
+            if (node.getData().equals(x)) {
+                ans = node.getData();
+            } else if (node.getData() > x) {
+                ans = findFloor((BSTNode<Integer>) node.getLeft(), x, currentFloor);
+            } else {
+                ans = findFloor((BSTNode<Integer>) node.getRight(), x, node.getData());
+            }
+        }
+        return ans;
+	}
 	/**
    * Esse calculo deve ser feito usando a BST. 
 	 * 
@@ -40,8 +63,31 @@ public class FloorCeilBSTImpl extends BSTImpl<Integer> implements FloorCeil {
 	 */
 	@Override
 	public Integer ceil(Integer[] array, Integer numero) {
-		//TODO Implemente seu codigo aqui
-		throw new UnsupportedOperationException("Not implemented yet!");
+		Integer ans = null;
+        if (array != null && numero != null && array.length > 0) {
+            this.root = new BSTNode<>();
+            for (Integer elem : array) {
+                if (elem != null) {
+                    this.insert(elem);
+                }
+            }
+            ans = findCeil(this.root, numero, null);
+        }
+        return ans;
 	}
 
+	
+	private Integer findCeil(BSTNode<Integer> node, Integer x, Integer currentCeil) {
+      Integer ans = currentCeil;
+        if (node != null && !node.isEmpty()) {
+            if (node.getData().equals(x)) {
+                ans = node.getData();
+            } else if (node.getData() < x) {
+                ans = findCeil((BSTNode<Integer>) node.getRight(), x, currentCeil);
+            } else {
+                ans = findCeil((BSTNode<Integer>) node.getLeft(), x, node.getData());
+            }
+        }
+        return ans;
+	}
 }

@@ -87,3 +87,73 @@
   <level>FINE</level>
   <message>File 121110520-DAVID LEONAM SILVA HOLANDA.zip was received. It was sent by DAVID LEONAM SILVA HOLANDA from IP 150.165.74.79 at 17-07-2026 17*06*23</message>
 </record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2026-07-18T18:12:00.141-0300</date>
+  <logger>DAVID LEONAM SILVA HOLANDA</logger>
+  <level>FINE</level>
+  <message>File 121110520-DAVID LEONAM SILVA HOLANDA.zip was received. It was sent by DAVID LEONAM SILVA HOLANDA from IP 192.168.1.2 at 18-07-2026 18*12*00</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2026-07-18T18:15:26.648-0300</date>
+  <logger>DAVID LEONAM SILVA HOLANDA</logger>
+  <level>FINE</level>
+  <message>File 121110520-DAVID LEONAM SILVA HOLANDA.zip was received. It was sent by DAVID LEONAM SILVA HOLANDA from IP 192.168.1.2 at 18-07-2026 18*15*26</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2026-07-18T19:14:51.500-0300</date>
+  <logger>DAVID LEONAM SILVA HOLANDA</logger>
+  <level>FINE</level>
+  <message>File 121110520-DAVID LEONAM SILVA HOLANDA.zip was received. It was sent by DAVID LEONAM SILVA HOLANDA from IP 192.168.1.2 at 18-07-2026 19*14*51</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2026-07-18T19:23:41.323-0300</date>
+  <logger>DAVID LEONAM SILVA HOLANDA</logger>
+  <level>FINE</level>
+  <message>File 121110520-DAVID LEONAM SILVA HOLANDA.zip was received. It was sent by DAVID LEONAM SILVA HOLANDA from IP 192.168.1.2 at 18-07-2026 19*23*41</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2026-07-18T19:34:04.463-0300</date>
+  <logger>DAVID LEONAM SILVA HOLANDA</logger>
+  <level>FINE</level>
+  <message>File 121110520-DAVID LEONAM SILVA HOLANDA.zip was received. It was sent by DAVID LEONAM SILVA HOLANDA from IP 192.168.1.2 at 18-07-2026 19*34*04</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2026-07-18T19:36:23.317-0300</date>
+  <logger>DAVID LEONAM SILVA HOLANDA</logger>
+  <level>FINE</level>
+  <message>File 121110520-DAVID LEONAM SILVA HOLANDA.zip was received. It was sent by DAVID LEONAM SILVA HOLANDA from IP 192.168.1.2 at 18-07-2026 19*36*23</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2026-07-18T19:38:47.708-0300</date>
+  <logger>DAVID LEONAM SILVA HOLANDA</logger>
+  <level>FINE</level>
+  <message>File 121110520-DAVID LEONAM SILVA HOLANDA.zip was received. It was sent by DAVID LEONAM SILVA HOLANDA from IP 192.168.1.2 at 18-07-2026 19*38*47</message>
+</record>
